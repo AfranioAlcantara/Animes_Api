@@ -1,0 +1,94 @@
+{
+    "info": {
+      "name": "Anime Characters API Authentication",
+      "_postman_id": "d8ff0a3d-021f-4b42-8c0e-69fefc8b842f",
+      "description": "Testes de autenticação para a API de personagens de anime.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "POST /api/register (Criar Usuário)",
+        "request": {
+          "method": "POST",
+          "url": {
+            "raw": "https://animesapi-production-afranio.up.railway.app/api/register",
+            "protocol": "https",
+            "host": [
+              "animesapi-production-afranio",
+              "up",
+              "railway",
+              "app"
+            ],
+            "path": [
+              "api",
+              "register"
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\"username\": \"user1\", \"password\": \"password123\"}"
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 201 (Created)', function () {",
+                "    pm.response.to.have.status(201);",
+                "});"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "POST /api/login (Fazer Login e Obter Token)",
+        "request": {
+          "method": "POST",
+          "url": {
+            "raw": "https://animesapi-production-afranio.up.railway.app/api/login",
+            "protocol": "https",
+            "host": [
+              "animesapi-production-afranio",
+              "up",
+              "railway",
+              "app"
+            ],
+            "path": [
+              "api",
+              "login"
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\"username\": \"user1\", \"password\": \"password123\"}"
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test('Token is returned', function () {",
+                "    pm.response.to.have.jsonBody('token');",
+                "});",
+                "",
+                "// Save token to environment variable",
+                "pm.environment.set('auth_token', pm.response.json().token);"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+  

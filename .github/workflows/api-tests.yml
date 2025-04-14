@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: 📥 Checkout do repositório
-        uses: actions/checkout@v4  # usa a versão mais recente e estável
+        uses: actions/checkout@v4
 
       - name: ⚙️ Instala Node.js
-        uses: actions/setup-node@v4  # usa versão estável mais nova
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -24,15 +24,23 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
 
-      - name: 🧪 Executa os testes com Newman
+      - name: 🧪 Executa os testes de autenticação
         run: |
-          newman run ./test/Anime_Characters_API_Collection.json \
+          newman run ./test/autenticacao_collection.json \
+            --env-var base_url=https://animesapi-production-afranio.up.railway.app \
             -r cli,htmlextra \
-            --reporter-htmlextra-export=newman-report.html
+            --reporter-htmlextra-export=autenticacao-report.html
+
+      - name: 🧪 Executa os testes de funcionalidade
+        run: |
+          newman run ./test/funcionalidade_collection.json \
+            --env-var base_url=https://animesapi-production-afranio.up.railway.app \
+            --env-var auth_token={{auth_token}} \
+            -r cli,htmlextra \
+            --reporter-htmlextra-export=funcionalidade-report.html
 
       - name: 📤 Publica o relatório como artefato
-        uses: actions/upload-artifact@v4  # <<< ALTERADO AQUI
+        uses: actions/upload-artifact@v4
         with:
           name: Relatorio-Newman
           path: newman-report.html
-

@@ -1,138 +1,143 @@
 {
-    "info": {
-      "name": "Anime Characters API",
-      "_postman_id": "d8ff0a3d-021f-4b42-8c0e-69fefc8b842f",
-      "description": "Testes automatizados para a API de personagens de anime.",
-      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  "info": {
+    "name": "Anime Characters API",
+    "_postman_id": "d8ff0a3d-021f-4b42-8c0e-69fefc8b842f",
+    "description": "Testes automatizados para a API de personagens de anime.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /api/characters",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://animesapi-production-afranio.up.railway.app",
+          "protocol": "https",
+          "host": [
+            "animesapi-production-afranio",
+            "up",
+            "railway",
+            "app"
+          ],
+          "path": [
+            "api",
+            "characters"
+          ]
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response is an array', function () {",
+              "    pm.expect(pm.response.json()).to.be.an('array');",
+              "});",
+              "",
+              "pm.test('Response has at least 1 character', function () {",
+              "    pm.expect(pm.response.json().length).to.be.above(0);",
+              "});",
+              "",
+              "pm.test('Each character has required properties', function () {",
+              "    const first = pm.response.json()[0];",
+              "    pm.expect(first).to.have.property('id');",
+              "    pm.expect(first).to.have.property('nome');",
+              "    pm.expect(first).to.have.property('anime');",
+              "    pm.expect(first).to.have.property('idade');",
+              "    pm.expect(first).to.have.property('altura');",
+              "    pm.expect(first).to.have.property('curiosidade');",
+              "});"
+            ]
+          }
+        }
+      ]
     },
-    "item": [
-      {
-        "name": "GET /api/characters",
-        "request": {
-          "method": "GET",
-          "url": {
-            "raw": "http://animesapi-production.up.railway.app/api/characters",
-            "protocol": "http",
-            "host": [
-              "animesapi-production.up.railway.app"
-            ],
-            "port": "3000",
-            "path": [
-              "api",
-              "characters"
-            ]
-          }
-        },
-        "response": [],
-        "event": [
-          {
-            "listen": "test",
-            "script": {
-              "type": "text/javascript",
-              "exec": [
-                "pm.test('Status code is 200', function () {",
-                "    pm.response.to.have.status(200);",
-                "});",
-                "",
-                "pm.test('Response is an array', function () {",
-                "    pm.expect(pm.response.json()).to.be.an('array');",
-                "});",
-                "",
-                "pm.test('Response has at least 1 character', function () {",
-                "    pm.expect(pm.response.json().length).to.be.above(0);",
-                "});",
-                "",
-                "pm.test('Each character has required properties', function () {",
-                "    const first = pm.response.json()[0];",
-                "    pm.expect(first).to.have.property('id');",
-                "    pm.expect(first).to.have.property('nome');",
-                "    pm.expect(first).to.have.property('anime');",
-                "    pm.expect(first).to.have.property('idade');",
-                "    pm.expect(first).to.have.property('altura');",
-                "    pm.expect(first).to.have.property('curiosidade');",
-                "});"
-              ]
-            }
-          }
-        ]
+    {
+      "name": "GET /api/characters/{id}",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://animesapi-production-afranio.up.railway.app",
+          "protocol": "https",
+          "host": [
+            "animesapi-production-afranio",
+            "up",
+            "railway",
+            "app"
+          ],
+          "path": [
+            "api",
+            "characters",
+            "1"
+          ]
+        }
       },
-      {
-        "name": "GET /api/characters/{id}",
-        "request": {
-          "method": "GET",
-          "url": {
-            "raw": "http://animesapi-production.up.railway.app/api/characters/1",
-            "protocol": "http",
-            "host": [
-              "animesapi-production.up.railway.app"
-            ],
-            "port": "3000",
-            "path": [
-              "api",
-              "characters",
-              "1"
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response has expected fields', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('id', 1);",
+              "    pm.expect(jsonData).to.have.property('nome');",
+              "});"
             ]
           }
-        },
-        "response": [],
-        "event": [
-          {
-            "listen": "test",
-            "script": {
-              "type": "text/javascript",
-              "exec": [
-                "pm.test('Status code is 200', function () {",
-                "    pm.response.to.have.status(200);",
-                "});",
-                "",
-                "pm.test('Response has expected fields', function () {",
-                "    const jsonData = pm.response.json();",
-                "    pm.expect(jsonData).to.have.property('id', 1);",
-                "    pm.expect(jsonData).to.have.property('nome');",
-                "});"
-              ]
-            }
-          }
-        ]
+        }
+      ]
+    },
+    {
+      "name": "GET /api/characters/{invalid_id}",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://animesapi-production-afranio.up.railway.app",
+          "protocol": "https",
+          "host": [
+            "animesapi-production-afranio",
+            "up",
+            "railway",
+            "app"
+          ],
+          "path": [
+            "api",
+            "characters",
+            "99999"
+          ]
+        }
       },
-      {
-        "name": "GET /api/characters/{invalid_id}",
-        "request": {
-          "method": "GET",
-          "url": {
-            "raw": "http://animesapi-production.up.railway.app/api/characters/99999",
-            "protocol": "http",
-            "host": [
-              "animesapi-production.up.railway.app"
-            ],
-            "port": "3000",
-            "path": [
-              "api",
-              "characters",
-              "99999"
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 404 for invalid ID', function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test('Error message is returned', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('mensagem', 'Personagem não encontrado');",
+              "});"
             ]
           }
-        },
-        "response": [],
-        "event": [
-          {
-            "listen": "test",
-            "script": {
-              "type": "text/javascript",
-              "exec": [
-                "pm.test('Status code is 404 for invalid ID', function () {",
-                "    pm.response.to.have.status(404);",
-                "});",
-                "",
-                "pm.test('Error message is returned', function () {",
-                "    const jsonData = pm.response.json();",
-                "    pm.expect(jsonData).to.have.property('mensagem', 'Personagem não encontrado');",
-                "});"
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  }
-  
+        }
+      ]
+    }
+  ]
+}
