@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+
+// Usa a porta do ambiente ou 3000 como fallback
+const port = process.env.PORT || 3000;
 
 const characters = require('./data/characters');
 
@@ -9,6 +11,7 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml');
 
+// Middleware Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Rotas
@@ -27,7 +30,8 @@ app.get('/api/characters/:id', (req, res) => {
   res.json(character);
 });
 
+// Inicializa servidor na porta correta para Railway
 app.listen(port, () => {
-  console.log(`API de personagens de anime rodando em http://animesapi-production.up.railway.app:${port}`);
-  console.log(`Swagger disponível em http://animesapi-production.up.railway.app:${port}/api-docs`);
+  console.log(`API de personagens de anime rodando na porta ${port}`);
+  console.log(`Swagger disponível em /api-docs`);
 });
