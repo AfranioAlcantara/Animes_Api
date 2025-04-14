@@ -11,7 +11,7 @@
         "request": {
           "method": "GET",
           "url": {
-            "raw": "http://animesapi-production.up.railway.app:3000/api/characters",
+            "raw": "http://animesapi-production.up.railway.app/api/characters",
             "protocol": "http",
             "host": [
               "animesapi-production.up.railway.app"
@@ -61,7 +61,7 @@
         "request": {
           "method": "GET",
           "url": {
-            "raw": "http://animesapi-production.up.railway.app:3000/api/characters/1",
+            "raw": "http://animesapi-production.up.railway.app/api/characters/1",
             "protocol": "http",
             "host": [
               "animesapi-production.up.railway.app"
@@ -100,7 +100,7 @@
         "request": {
           "method": "GET",
           "url": {
-            "raw": "http://animesapi-production.up.railway.app:3000/api/characters/99999",
+            "raw": "http://animesapi-production.up.railway.app/api/characters/99999",
             "protocol": "http",
             "host": [
               "animesapi-production.up.railway.app"
