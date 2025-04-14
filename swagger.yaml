@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: API de Personagens de Anime
+  version: "1.0.0"
+  description: API que fornece informações sobre personagens de animes famosos
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /api/characters:
+    get:
+      summary: Retorna todos os personagens
+      tags:
+        - Personagens
+      responses:
+        '200':
+          description: Lista de personagens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Character'
+
+  /api/characters/{id}:
+    get:
+      summary: Retorna um personagem por ID
+      tags:
+        - Personagens
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Um personagem
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+        '404':
+          description: Personagem não encontrado
+
+components:
+  schemas:
+    Character:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        nome:
+          type: string
+          example: Monkey D. Luffy
+        anime:
+          type: string
+          example: One Piece
+        idade:
+          type: integer
+          example: 19
+        altura:
+          type: string
+          example: 1,74 m
+        curiosidade:
+          type: string
+          example: Luffy possui um corpo elástico devido à Gomu-Gomu no Mi.

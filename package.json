@@ -1,0 +1,20 @@
+{
+  "name": "animes_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+  "test:api": "newman run ./test/Anime_Characters_API_Collection.json -r cli,htmlextra --reporter-htmlextra-export ./reports/newman-report.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
+  }
+}
