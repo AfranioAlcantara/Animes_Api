@@ -472,7 +472,7 @@ body.theme-light code {
                 <a class="nav-link text-white" id="pills-requests-tab" data-toggle="pill" href="#pills-requests" role="tab" aria-controls="pills-requests" aria-selected="false">Total Requests <span class="badge badge-light">3</span></a>
             </li>
             <li class="nav-item bg-danger" data-toggle="tooltip" title="Click to view the Failed Tests">
-                <a class="nav-link text-white" id="pills-failed-tab" data-toggle="pill" href="#pills-failed" role="tab" aria-controls="pills-failed" aria-selected="false">Failed Tests <span class="badge badge-light">0</span></a>
+                <a class="nav-link text-white" id="pills-failed-tab" data-toggle="pill" href="#pills-failed" role="tab" aria-controls="pills-failed" aria-selected="false">Failed Tests <span class="badge badge-light">1</span></a>
             </li>
             <li class="nav-item bg-warning" data-toggle="tooltip" title="Click to view the Skipped Tests">
                 <a class="nav-link text-white" id="pills-skipped-tab" data-toggle="pill" href="#pills-skipped" role="tab" aria-controls="pills-skipped" aria-selected="false">Skipped Tests <span class="badge badge-light">0</span></a>
@@ -483,11 +483,11 @@ body.theme-light code {
 <div class="row">
   <div class="col-md-9 col-lg-12 main">
    <h1 class="display-2 text-center">Newman Run Dashboard</h1>
-   <h5 class="text-center">Monday, 14 April 2025 13:22:52</h5>
+   <h5 class="text-center">Monday, 14 April 2025 16:02:11</h5>
    <div class="row">
     <div class="col-lg-3 col-md-6">
      <div class="card text-white card-success">
-      <div class="card-body bg-success">
+      <div class="card-body bg-danger">
        <div class="rotate">
         <i class="fa fa-retweet fa-5x"></i>
        </div>
@@ -509,12 +509,12 @@ body.theme-light code {
     </div>
     <div class="col-lg-3 col-md-6">
      <div class="card text-white card-info">
-      <div class="card-body bg-success">
+      <div class="card-body bg-danger">
        <div class="rotate">
         <i class="fa fa-plus-circle fa-5x"></i>
        </div>
        <h6 class="text-uppercase">Total Failed Tests</h6>
-       <h1 class="display-1">0</h1>
+       <h1 class="display-1">1</h1>
       </div>
      </div>
     </div>
@@ -562,9 +562,9 @@ body.theme-light code {
             <div class="card border-info">
                 <div class="card-body">
                 <h5 class="card-title text-uppercase text-white text-center bg-info">Timings and Data</h5>
-                <span><i class="fas fa-stopwatch"></i></span><strong> Total run duration:</strong> 225ms<br>
-                <span><i class="fas fa-database"></i></span><strong> Total data received:</strong> 9.48KB<br>
-                <span><i class="fas fa-stopwatch"></i></span><strong> Average response time:</strong> 9ms<br>
+                <span><i class="fas fa-stopwatch"></i></span><strong> Total run duration:</strong> 896ms<br>
+                <span><i class="fas fa-database"></i></span><strong> Total data received:</strong> 9.6KB<br>
+                <span><i class="fas fa-stopwatch"></i></span><strong> Average response time:</strong> 210ms<br>
                 </div>
             </div>
         </div>
@@ -596,10 +596,10 @@ body.theme-light code {
                         <td class="text-center">3</td>
                         <td class="text-center">0</td>
                     </tr>
-                    <tr class="">
+                    <tr class="table-danger">
                         <td>Assertions</td>
                         <td class="text-center">8</td>
-                        <td class="text-center">0</td>
+                        <td class="text-center">1</td>
                     </tr>
                     <tr class="">
                         <td>Skipped Tests</td>
@@ -620,9 +620,38 @@ body.theme-light code {
             <div class="tab-pane fade" id="pills-failed" role="tabcard" aria-labelledby="pills-failed-tab">
                 <button id="topOfFailuresScreen" class="btn btn-outline-success btn-sm backToTop" onclick="topFunction()">Go To Top</button>
 
-                <div class="alert alert-success text-uppercase text-center">
-                     <br><br><h1 class="text-center">There are no failed tests <span><i class="far fa-thumbs-up"></i></span></h1><br><br>
-                </div>
+                    <div class="btn-group float-right" role="group" aria-label="Button Group">
+                        <button id="openAllFailed" class="btn btn-outline-success btn-sm float-right" style="text-align: center; width: 185px;">Expand All Failed Tests</button>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="alert alert-danger text-uppercase text-center">
+                        <h4>Showing 1 Failure</h4>
+                    </div>
+                    <div class="col-sm-12 mb-3">
+                    <div class="card-deck">
+                        <div class="card border-danger">
+                            <div class="card-header bg-danger">
+                                <a data-toggle="collapse" href="#" data-target="#fails-collapse-add45cfe-b633-4ecc-b9bc-8eaf4c2e3891" aria-expanded="false" aria-controls="collapse" id="fails-add45cfe-b633-4ecc-b9bc-8eaf4c2e3891" class="collapsed text-white z-block">
+                                    Iteration 1 - JSONError - Anime Characters API - GET /api/characters/{invalid_id} <i class="float-lg-right fa fa-chevron-down" style="padding-top:5px;"></i>
+                                </a>
+                            </div>
+                            <div id="fails-collapse-add45cfe-b633-4ecc-b9bc-8eaf4c2e3891" class="collapse" aria-labelledby="fails-add45cfe-b633-4ecc-b9bc-8eaf4c2e3891">
+                            <div class="card-body">
+                                <h5 ><strong>Failed Test:</strong> Error message is returned</h5>
+                            <hr>
+                            <h5 class="card-title text-uppercase text-white text-center bg-danger">Assertion Error Message</h5>
+                            <div>
+                                <pre><code >Unexpected token &#x27;&lt;&#x27; at 1:1
+&lt;!DOCTYPE html&gt;
+^</code></pre>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
             </div>
 
             <div class="tab-pane fade" id="pills-skipped" role="tabcard" aria-labelledby="pills-skipped-tab">
@@ -637,6 +666,7 @@ body.theme-light code {
             <button id="topOfRequestsScreen" class="btn btn-outline-success btn-sm backToTop" onclick="topFunction()">Go To Top</button>
 
             <div class="btn-group float-right" role="group" aria-label="Button Group">
+                <button id="showOnlyFailures" class="btn btn-outline-success btn-sm float-right" style="text-align: center; width:160px;">Show Failed Iterations</button>
                 <button id="openAll" class="btn btn-outline-success btn-sm float-right" style="text-align: center; width: 140px;">Expand Folders</button>
                 <button id="openAllRequests" class="btn btn-outline-success btn-sm float-right" style="text-align: center; width: 140px;">Expand Requests</button>
             </div>
@@ -651,16 +681,16 @@ body.theme-light code {
     </div>
     <h6 class="text-uppercase text-muted" id="iterationSelected" style="padding-top: 10px;"></h6>
 	<div class="tab-content" id="execution-data">
-            <div id="folder-7cbb7926-0fda-4b96-b52b-08cb5c557e72" class="card-deck iteration-0">
+            <div id="folder-f5e9442e-2341-42b4-8495-774900010378" class="card-deck iteration-0">
             <div class="row iteration-0">
                 <div class="col-sm-12 mb-3 iteration-0">
                 <div class="card iteration-0">
                     <div class="card-header  bg-success iteration-0">
-                        <a data-toggle="collapse" href="#" data-target="#collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72" aria-expanded="false" aria-controls="collapse" id="requests-7cbb7926-0fda-4b96-b52b-08cb5c557e72" class="collapsed text-white z-block">
+                        <a data-toggle="collapse" href="#" data-target="#collapse-f5e9442e-2341-42b4-8495-774900010378" aria-expanded="false" aria-controls="collapse" id="requests-f5e9442e-2341-42b4-8495-774900010378" class="collapsed text-white z-block">
                     Iteration: 1 - GET /api/characters <i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
                 </a>
                     </div>
-                    <div id="collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72" class="collapse" aria-labelledby="requests-7cbb7926-0fda-4b96-b52b-08cb5c557e72">
+                    <div id="collapse-f5e9442e-2341-42b4-8495-774900010378" class="collapse" aria-labelledby="requests-f5e9442e-2341-42b4-8495-774900010378">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 mb-3">
@@ -669,14 +699,14 @@ body.theme-light code {
                                     <div class="card-body">
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Request Information</h5>
                                     <span><i class="fas fa-info-circle"></i></span><strong> Request Method:</strong> <span class="badge-outline-success badge badge-success"> GET</span><br>
-                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="http://animesapi-production.up.railway.app/api/characters" target="_blank">http://animesapi-production.up.railway.app/api/characters</a><br>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="https://animesapi-production-afranio.up.railway.app/api/characters" target="_blank">https://animesapi-production-afranio.up.railway.app/api/characters</a><br>
                                     </div>
                                 </div>
                                 <div class="card border-info" style="width: 50rem;">
                                     <div class="card-body">
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Response Information</h5>
                                     <span><i class="fas fa-info-circle"></i></span><strong> Response Code:</strong> <span class="float-right badge-outline badge badge-success"> 200 - OK</span><br>
-                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 21ms</span><br>
+                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 461ms</span><br>
                                     <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 9.29KB</span><br>
                                     <hr>
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Test Pass Percentage</h5>
@@ -716,11 +746,11 @@ body.theme-light code {
                                                     </tr>
                                                     <tr>
                                                         <td class="text-nowrap">Postman-Token</td>
-                                                        <td class="text-wrap">1312bfd9-9860-4209-b932-8b2778105631</td>
+                                                        <td class="text-wrap">e8c67d05-09be-4736-b247-4076414d5832</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-nowrap">Host</td>
-                                                        <td class="text-wrap">animesapi-production.up.railway.app:3000</td>
+                                                        <td class="text-wrap">animesapi-production-afranio.up.railway.app</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-nowrap">Accept-Encoding</td>
@@ -749,32 +779,36 @@ body.theme-light code {
                                         <thead class="thead-light text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-nowrap">X-Powered-By</td>
-                                                    <td class="text-wrap">Express</td>
+                                                    <td class="text-nowrap">Content-Length</td>
+                                                    <td class="text-wrap">9509</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-nowrap">Content-Type</td>
                                                     <td class="text-wrap">application/json; charset&#x3D;utf-8</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Content-Length</td>
-                                                    <td class="text-wrap">9509</td>
+                                                    <td class="text-nowrap">Date</td>
+                                                    <td class="text-wrap">Mon, 14 Apr 2025 19:02:11 GMT</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">ETag</td>
+                                                    <td class="text-nowrap">Etag</td>
                                                     <td class="text-wrap">W/&quot;2525-C6K7fR8h5whU7Wjfs6XLVtY1S4Y&quot;</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Date</td>
-                                                    <td class="text-wrap">Mon, 14 Apr 2025 16:22:52 GMT</td>
+                                                    <td class="text-nowrap">Server</td>
+                                                    <td class="text-wrap">railway-edge</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Connection</td>
-                                                    <td class="text-wrap">keep-alive</td>
+                                                    <td class="text-nowrap">X-Powered-By</td>
+                                                    <td class="text-wrap">Express</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Keep-Alive</td>
-                                                    <td class="text-wrap">timeout&#x3D;5</td>
+                                                    <td class="text-nowrap">X-Railway-Edge</td>
+                                                    <td class="text-wrap">railway/us-east4-eqdc4a</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Railway-Request-Id</td>
+                                                    <td class="text-wrap">naI8ZsWmQ4WWrACviAFGPQ_28081791</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -791,10 +825,10 @@ body.theme-light code {
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
                                         <div class="dyn-height">
-                                                <pre><code id="copyText-7649114d-d439-4744-ae9c-33a1eabb3ce3" class="prettyPrint">[{&quot;id&quot;:1,&quot;nome&quot;:&quot;Monkey D. Luffy&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,74 m&quot;,&quot;curiosidade&quot;:&quot;Luffy possui um corpo elástico devido à Gomu-Gomu no Mi.&quot;},{&quot;id&quot;:2,&quot;nome&quot;:&quot;Goku (Son Goku)&quot;,&quot;anime&quot;:&quot;Dragon Ball&quot;,&quot;idade&quot;:43,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Goku é baseado em Sun Wukong, o Rei Macaco do romance chinês &#x27;Jornada ao Oeste&#x27;.&quot;},{&quot;id&quot;:3,&quot;nome&quot;:&quot;Naruto Uzumaki&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,80 m&quot;,&quot;curiosidade&quot;:&quot;Naruto sonha em se tornar Hokage para ser reconhecido por todos.&quot;},{&quot;id&quot;:4,&quot;nome&quot;:&quot;Roronoa Zoro&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:21,&quot;altura&quot;:&quot;1,81 m&quot;,&quot;curiosidade&quot;:&quot;Zoro é conhecido por sua técnica de combate com três espadas, chamada Santoryu.&quot;},{&quot;id&quot;:5,&quot;nome&quot;:&quot;Itachi Uchiha&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:21,&quot;altura&quot;:&quot;1,78 m&quot;,&quot;curiosidade&quot;:&quot;Itachi eliminou todo o clã Uchiha, exceto seu irmão Sasuke.&quot;},{&quot;id&quot;:6,&quot;nome&quot;:&quot;Ichigo Kurosaki&quot;,&quot;anime&quot;:&quot;Bleach&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,74 m&quot;,&quot;curiosidade&quot;:&quot;Ichigo tem o poder de ver espíritos desde pequeno.&quot;},{&quot;id&quot;:7,&quot;nome&quot;:&quot;Lelouch vi Britannia&quot;,&quot;anime&quot;:&quot;Code Geass&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,80 m&quot;,&quot;curiosidade&quot;:&quot;Lelouch possui o Geass, que lhe permite controlar a mente de qualquer pessoa.&quot;},{&quot;id&quot;:8,&quot;nome&quot;:&quot;Saitama&quot;,&quot;anime&quot;:&quot;One Punch Man&quot;,&quot;idade&quot;:25,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Saitama é um herói que derrota qualquer inimigo com apenas um soco.&quot;},{&quot;id&quot;:9,&quot;nome&quot;:&quot;Eren Yeager&quot;,&quot;anime&quot;:&quot;Attack on Titan&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,70 m&quot;,&quot;curiosidade&quot;:&quot;Eren se torna um titã após ser atacado por um titã ancestral.&quot;},{&quot;id&quot;:10,&quot;nome&quot;:&quot;Sasuke Uchiha&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,72 m&quot;,&quot;curiosidade&quot;:&quot;Sasuke é o último sobrevivente do clã Uchiha, depois do massacre de seu clã.&quot;},{&quot;id&quot;:11,&quot;nome&quot;:&quot;Hinata Hyuga&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,60 m&quot;,&quot;curiosidade&quot;:&quot;Hinata possui o Byakugan, uma habilidade ocular única de seu clã.&quot;},{&quot;id&quot;:12,&quot;nome&quot;:&quot;Kagome Higurashi&quot;,&quot;anime&quot;:&quot;Inuyasha&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,58 m&quot;,&quot;curiosidade&quot;:&quot;Kagome é a reencarnação de Kikyo, uma sacerdotisa do passado.&quot;},{&quot;id&quot;:13,&quot;nome&quot;:&quot;Mikasa Ackerman&quot;,&quot;anime&quot;:&quot;Attack on Titan&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,69 m&quot;,&quot;curiosidade&quot;:&quot;Mikasa é a irmã adotiva de Eren Yeager e uma das melhores combatentes da Tropa de Exploração.&quot;},{&quot;id&quot;:14,&quot;nome&quot;:&quot;L Lawliet&quot;,&quot;anime&quot;:&quot;Death Note&quot;,&quot;idade&quot;:24,&quot;altura&quot;:&quot;1,80 m&quot;,&quot;curiosidade&quot;:&quot;L é um detetive excêntrico, conhecido por resolver casos aparentemente impossíveis.&quot;},{&quot;id&quot;:15,&quot;nome&quot;:&quot;Natsu Dragneel&quot;,&quot;anime&quot;:&quot;Fairy Tail&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,70 m&quot;,&quot;curiosidade&quot;:&quot;Natsu é um Dragon Slayer, com o poder de usar o fogo de Igneel, um dragão.&quot;},{&quot;id&quot;:16,&quot;nome&quot;:&quot;Erza Scarlet&quot;,&quot;anime&quot;:&quot;Fairy Tail&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,70 m&quot;,&quot;curiosidade&quot;:&quot;Erza tem a habilidade de equipar-se com diferentes armaduras e armas mágicas.&quot;},{&quot;id&quot;:17,&quot;nome&quot;:&quot;Shoto Todoroki&quot;,&quot;anime&quot;:&quot;My Hero Academia&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,76 m&quot;,&quot;curiosidade&quot;:&quot;Shoto tem o poder de controlar tanto fogo quanto gelo.&quot;},{&quot;id&quot;:18,&quot;nome&quot;:&quot;Deku (Izuku Midoriya)&quot;,&quot;anime&quot;:&quot;My Hero Academia&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,60 m&quot;,&quot;curiosidade&quot;:&quot;Deku é o herói principal da história e possui o poder &#x27;One For All&#x27;.&quot;},{&quot;id&quot;:19,&quot;nome&quot;:&quot;Kamina&quot;,&quot;anime&quot;:&quot;Tengen Toppa Gurren Lagann&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Kamina é um dos principais personagens do anime, conhecido por sua personalidade ousada e corajosa.&quot;},{&quot;id&quot;:20,&quot;nome&quot;:&quot;Yusuke Urameshi&quot;,&quot;anime&quot;:&quot;Yu Yu Hakusho&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Yusuke começa como um delinquente, mas depois se torna um detetive espiritual.&quot;},{&quot;id&quot;:21,&quot;nome&quot;:&quot;Edward Elric&quot;,&quot;anime&quot;:&quot;Fullmetal Alchemist&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,65 m&quot;,&quot;curiosidade&quot;:&quot;Edward é o alquimista de aço e perdeu seu braço e perna devido a um experimento alquímico.&quot;},{&quot;id&quot;:22,&quot;nome&quot;:&quot;Roy Mustang&quot;,&quot;anime&quot;:&quot;Fullmetal Alchemist&quot;,&quot;idade&quot;:29,&quot;altura&quot;:&quot;1,76 m&quot;,&quot;curiosidade&quot;:&quot;Roy é o Alquimista de Fogo e possui um grande poder militar.&quot;},{&quot;id&quot;:23,&quot;nome&quot;:&quot;Saber (Artoria Pendragon)&quot;,&quot;anime&quot;:&quot;Fate/Stay Night&quot;,&quot;idade&quot;:&quot;De 20 a 30 anos&quot;,&quot;altura&quot;:&quot;1,55 m&quot;,&quot;curiosidade&quot;:&quot;Saber é a reencarnação de Artoria, a lendária Rainha da Grã-Bretanha.&quot;},{&quot;id&quot;:24,&quot;nome&quot;:&quot;Yuno Gasai&quot;,&quot;anime&quot;:&quot;Future Diary&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,52 m&quot;,&quot;curiosidade&quot;:&quot;Yuno é obcecada por Yukiteru e faz tudo para garantir sua sobrevivência no jogo dos diários.&quot;},{&quot;id&quot;:25,&quot;nome&quot;:&quot;Homura Akemi&quot;,&quot;anime&quot;:&quot;Puella Magi Madoka Magica&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,58 m&quot;,&quot;curiosidade&quot;:&quot;Homura tem a habilidade de manipular o tempo, fazendo-a reviver repetidamente os mesmos eventos.&quot;},{&quot;id&quot;:26,&quot;nome&quot;:&quot;Kenshin Himura&quot;,&quot;anime&quot;:&quot;Rurouni Kenshin&quot;,&quot;idade&quot;:28,&quot;altura&quot;:&quot;1,63 m&quot;,&quot;curiosidade&quot;:&quot;Kenshin é um ex-assassino que jurou nunca mais matar, usando uma espada com a lâmina voltada para trás.&quot;},{&quot;id&quot;:27,&quot;nome&quot;:&quot;Luffy D. Monkey&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,74 m&quot;,&quot;curiosidade&quot;:&quot;Luffy tem o sonho de se tornar o Rei dos Piratas e explorar o One Piece, o maior tesouro do mundo.&quot;},{&quot;id&quot;:28,&quot;nome&quot;:&quot;Moka Akashiya&quot;,&quot;anime&quot;:&quot;Rosario + Vampire&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,65 m&quot;,&quot;curiosidade&quot;:&quot;Moka é uma vampira com duas personalidades: uma doce e humana, e outra poderosa e perigosa.&quot;},{&quot;id&quot;:29,&quot;nome&quot;:&quot;Inuyasha&quot;,&quot;anime&quot;:&quot;Inuyasha&quot;,&quot;idade&quot;:200,&quot;altura&quot;:&quot;1,70 m&quot;,&quot;curiosidade&quot;:&quot;Inuyasha é um meio-humano e meio-demônio, buscando a Jóia de Quatro Almas Apesar de ter mais de 200 anos aparenta ter apenas 16.&quot;},{&quot;id&quot;:30,&quot;nome&quot;:&quot;Kamina&quot;,&quot;anime&quot;:&quot;Tengen Toppa Gurren Lagann&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Kamina é o irmão mais velho de Simon e possui um grande espírito de liderança.&quot;},{&quot;id&quot;:31,&quot;nome&quot;:&quot;Yugi Mutou&quot;,&quot;anime&quot;:&quot;Yu-Gi-Oh!&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,58 m&quot;,&quot;curiosidade&quot;:&quot;Yugi é um especialista em jogos e herda um antigo espírito de faraó com poderes místicos.&quot;},{&quot;id&quot;:32,&quot;nome&quot;:&quot;Rin Tohsaka&quot;,&quot;anime&quot;:&quot;Fate/Stay Night&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,59 m&quot;,&quot;curiosidade&quot;:&quot;Rin é uma das principais heroínas de Fate/Stay Night e tem uma habilidade mágica impressionante.&quot;},{&quot;id&quot;:33,&quot;nome&quot;:&quot;Vash the Stampede&quot;,&quot;anime&quot;:&quot;Trigun&quot;,&quot;idade&quot;:131,&quot;altura&quot;:&quot;1,84 m&quot;,&quot;curiosidade&quot;:&quot;Vash é conhecido por sua incrível habilidade com armas e por ser um pacifista, apesar de sua fama de destruidor.&quot;},{&quot;id&quot;:34,&quot;nome&quot;:&quot;Nico Robin&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:30,&quot;altura&quot;:&quot;1,88 m&quot;,&quot;curiosidade&quot;:&quot;Robin é uma arqueóloga com a habilidade de fazer crescer partes do corpo em qualquer superfície.&quot;},{&quot;id&quot;:35,&quot;nome&quot;:&quot;Gintoki Sakata&quot;,&quot;anime&quot;:&quot;Gintama&quot;,&quot;idade&quot;:27,&quot;altura&quot;:&quot;1,77 m&quot;,&quot;curiosidade&quot;:&quot;Gintoki é um samurai preguiçoso e rebelde, mas com um coração nobre e habilidades excepcionais.&quot;},{&quot;id&quot;:36,&quot;nome&quot;:&quot;Kyo Sohma&quot;,&quot;anime&quot;:&quot;Fruits Basket&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Kyo é um dos membros da família Sohma e se transforma em um gato quando é abraçado por alguém do sexo oposto.&quot;},{&quot;id&quot;:37,&quot;nome&quot;:&quot;Shinya Kogami&quot;,&quot;anime&quot;:&quot;Psycho-Pass&quot;,&quot;idade&quot;:29,&quot;altura&quot;:&quot;1,82 m&quot;,&quot;curiosidade&quot;:&quot;Kogami é um ex-oficial de polícia que caça criminosos com seu próprio senso de justiça.&quot;},{&quot;id&quot;:38,&quot;nome&quot;:&quot;Todoroki Shoto&quot;,&quot;anime&quot;:&quot;My Hero Academia&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,76 m&quot;,&quot;curiosidade&quot;:&quot;Shoto pode controlar tanto o gelo quanto o fogo devido ao poder de seus pais.&quot;},{&quot;id&quot;:39,&quot;nome&quot;:&quot;Asuka Langley Soryu&quot;,&quot;anime&quot;:&quot;Neon Genesis Evangelion&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,57 m&quot;,&quot;curiosidade&quot;:&quot;Asuka é uma pilota de EVA altamente talentosa, mas com uma personalidade explosiva.&quot;},{&quot;id&quot;:40,&quot;nome&quot;:&quot;Kagome Higurashi&quot;,&quot;anime&quot;:&quot;Inuyasha&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,58 m&quot;,&quot;curiosidade&quot;:&quot;Kagome tem uma ligação mística com a Jóia de Quatro Almas, que causa grandes conflitos no enredo.&quot;},{&quot;id&quot;:41,&quot;nome&quot;:&quot;Saber (Artoria Pendragon)&quot;,&quot;anime&quot;:&quot;Fate/Stay Night&quot;,&quot;idade&quot;:&quot;De 20 a 30 anos&quot;,&quot;altura&quot;:&quot;1,55 m&quot;,&quot;curiosidade&quot;:&quot;Saber é a reencarnação de Artoria, a lendária Rainha da Grã-Bretanha.&quot;},{&quot;id&quot;:42,&quot;nome&quot;:&quot;Rikuto Aizawa&quot;,&quot;anime&quot;:&quot;Alderamin on the Sky&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,81 m&quot;,&quot;curiosidade&quot;:&quot;Rikuto é um estrategista militar altamente habilidoso e um dos principais personagens da série.&quot;},{&quot;id&quot;:43,&quot;nome&quot;:&quot;Saber (Altria Pendragon)&quot;,&quot;anime&quot;:&quot;Fate/Stay Night&quot;,&quot;idade&quot;:&quot;De 20 a 30 anos&quot;,&quot;altura&quot;:&quot;1,55 m&quot;,&quot;curiosidade&quot;:&quot;Saber é a reencarnação de Artoria, a lendária Rainha da Grã-Bretanha.&quot;},{&quot;id&quot;:44,&quot;nome&quot;:&quot;Nyaruko&quot;,&quot;anime&quot;:&quot;Haiyore! Nyaruko-san&quot;,&quot;idade&quot;:&quot;Desconhecida&quot;,&quot;altura&quot;:&quot;1,60 m&quot;,&quot;curiosidade&quot;:&quot;Nyaruko é uma deusa do caos e luta contra seres malignos de outras dimensões.&quot;},{&quot;id&quot;:45,&quot;nome&quot;:&quot;Kamina&quot;,&quot;anime&quot;:&quot;Tengen Toppa Gurren Lagann&quot;,&quot;idade&quot;:&quot;14&quot;,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Kamina é o irmão mais velho de Simon e possui um grande espírito de liderança.&quot;},{&quot;id&quot;:46,&quot;nome&quot;:&quot;Haruhi Fujioka&quot;,&quot;anime&quot;:&quot;Ouran High School Host Club&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,63 m&quot;,&quot;curiosidade&quot;:&quot;Haruhi é uma garota que se passa por menino para conseguir uma bolsa de estudos na escola de elite.&quot;},{&quot;id&quot;:47,&quot;nome&quot;:&quot;Kou Mabuchi&quot;,&quot;anime&quot;:&quot;Ao Haru Ride&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,72 m&quot;,&quot;curiosidade&quot;:&quot;Kou é um personagem que tem dificuldades em se expressar, mas guarda um passado cheio de emoções.&quot;},{&quot;id&quot;:48,&quot;nome&quot;:&quot;Hachiman Hikigaya&quot;,&quot;anime&quot;:&quot;Oregairu&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,80 m&quot;,&quot;curiosidade&quot;:&quot;Hachiman tem uma visão cínica da vida e da sociedade, o que o torna um dos personagens mais complexos.&quot;},{&quot;id&quot;:49,&quot;nome&quot;:&quot;Mami Tomoe&quot;,&quot;anime&quot;:&quot;Puella Magi Madoka Magica&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,62 m&quot;,&quot;curiosidade&quot;:&quot;Mami é uma das Puella Magi mais experientes, com uma habilidade impressionante de combate.&quot;},{&quot;id&quot;:50,&quot;nome&quot;:&quot;Sakura Haruno&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,60 m&quot;,&quot;curiosidade&quot;:&quot;Sakura tem uma força física impressionante e é uma das ninjas mais habilidosas de sua geração.&quot;}]</code></pre>
+                                                <pre><code id="copyText-4d889191-5bc6-4866-85ca-04749d34d4f1" class="prettyPrint">[{&quot;id&quot;:1,&quot;nome&quot;:&quot;Monkey D. Luffy&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,74 m&quot;,&quot;curiosidade&quot;:&quot;Luffy possui um corpo elástico devido à Gomu-Gomu no Mi.&quot;},{&quot;id&quot;:2,&quot;nome&quot;:&quot;Goku (Son Goku)&quot;,&quot;anime&quot;:&quot;Dragon Ball&quot;,&quot;idade&quot;:43,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Goku é baseado em Sun Wukong, o Rei Macaco do romance chinês &#x27;Jornada ao Oeste&#x27;.&quot;},{&quot;id&quot;:3,&quot;nome&quot;:&quot;Naruto Uzumaki&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,80 m&quot;,&quot;curiosidade&quot;:&quot;Naruto sonha em se tornar Hokage para ser reconhecido por todos.&quot;},{&quot;id&quot;:4,&quot;nome&quot;:&quot;Roronoa Zoro&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:21,&quot;altura&quot;:&quot;1,81 m&quot;,&quot;curiosidade&quot;:&quot;Zoro é conhecido por sua técnica de combate com três espadas, chamada Santoryu.&quot;},{&quot;id&quot;:5,&quot;nome&quot;:&quot;Itachi Uchiha&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:21,&quot;altura&quot;:&quot;1,78 m&quot;,&quot;curiosidade&quot;:&quot;Itachi eliminou todo o clã Uchiha, exceto seu irmão Sasuke.&quot;},{&quot;id&quot;:6,&quot;nome&quot;:&quot;Ichigo Kurosaki&quot;,&quot;anime&quot;:&quot;Bleach&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,74 m&quot;,&quot;curiosidade&quot;:&quot;Ichigo tem o poder de ver espíritos desde pequeno.&quot;},{&quot;id&quot;:7,&quot;nome&quot;:&quot;Lelouch vi Britannia&quot;,&quot;anime&quot;:&quot;Code Geass&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,80 m&quot;,&quot;curiosidade&quot;:&quot;Lelouch possui o Geass, que lhe permite controlar a mente de qualquer pessoa.&quot;},{&quot;id&quot;:8,&quot;nome&quot;:&quot;Saitama&quot;,&quot;anime&quot;:&quot;One Punch Man&quot;,&quot;idade&quot;:25,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Saitama é um herói que derrota qualquer inimigo com apenas um soco.&quot;},{&quot;id&quot;:9,&quot;nome&quot;:&quot;Eren Yeager&quot;,&quot;anime&quot;:&quot;Attack on Titan&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,70 m&quot;,&quot;curiosidade&quot;:&quot;Eren se torna um titã após ser atacado por um titã ancestral.&quot;},{&quot;id&quot;:10,&quot;nome&quot;:&quot;Sasuke Uchiha&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,72 m&quot;,&quot;curiosidade&quot;:&quot;Sasuke é o último sobrevivente do clã Uchiha, depois do massacre de seu clã.&quot;},{&quot;id&quot;:11,&quot;nome&quot;:&quot;Hinata Hyuga&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,60 m&quot;,&quot;curiosidade&quot;:&quot;Hinata possui o Byakugan, uma habilidade ocular única de seu clã.&quot;},{&quot;id&quot;:12,&quot;nome&quot;:&quot;Kagome Higurashi&quot;,&quot;anime&quot;:&quot;Inuyasha&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,58 m&quot;,&quot;curiosidade&quot;:&quot;Kagome é a reencarnação de Kikyo, uma sacerdotisa do passado.&quot;},{&quot;id&quot;:13,&quot;nome&quot;:&quot;Mikasa Ackerman&quot;,&quot;anime&quot;:&quot;Attack on Titan&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,69 m&quot;,&quot;curiosidade&quot;:&quot;Mikasa é a irmã adotiva de Eren Yeager e uma das melhores combatentes da Tropa de Exploração.&quot;},{&quot;id&quot;:14,&quot;nome&quot;:&quot;L Lawliet&quot;,&quot;anime&quot;:&quot;Death Note&quot;,&quot;idade&quot;:24,&quot;altura&quot;:&quot;1,80 m&quot;,&quot;curiosidade&quot;:&quot;L é um detetive excêntrico, conhecido por resolver casos aparentemente impossíveis.&quot;},{&quot;id&quot;:15,&quot;nome&quot;:&quot;Natsu Dragneel&quot;,&quot;anime&quot;:&quot;Fairy Tail&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,70 m&quot;,&quot;curiosidade&quot;:&quot;Natsu é um Dragon Slayer, com o poder de usar o fogo de Igneel, um dragão.&quot;},{&quot;id&quot;:16,&quot;nome&quot;:&quot;Erza Scarlet&quot;,&quot;anime&quot;:&quot;Fairy Tail&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,70 m&quot;,&quot;curiosidade&quot;:&quot;Erza tem a habilidade de equipar-se com diferentes armaduras e armas mágicas.&quot;},{&quot;id&quot;:17,&quot;nome&quot;:&quot;Shoto Todoroki&quot;,&quot;anime&quot;:&quot;My Hero Academia&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,76 m&quot;,&quot;curiosidade&quot;:&quot;Shoto tem o poder de controlar tanto fogo quanto gelo.&quot;},{&quot;id&quot;:18,&quot;nome&quot;:&quot;Deku (Izuku Midoriya)&quot;,&quot;anime&quot;:&quot;My Hero Academia&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,60 m&quot;,&quot;curiosidade&quot;:&quot;Deku é o herói principal da história e possui o poder &#x27;One For All&#x27;.&quot;},{&quot;id&quot;:19,&quot;nome&quot;:&quot;Kamina&quot;,&quot;anime&quot;:&quot;Tengen Toppa Gurren Lagann&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Kamina é um dos principais personagens do anime, conhecido por sua personalidade ousada e corajosa.&quot;},{&quot;id&quot;:20,&quot;nome&quot;:&quot;Yusuke Urameshi&quot;,&quot;anime&quot;:&quot;Yu Yu Hakusho&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Yusuke começa como um delinquente, mas depois se torna um detetive espiritual.&quot;},{&quot;id&quot;:21,&quot;nome&quot;:&quot;Edward Elric&quot;,&quot;anime&quot;:&quot;Fullmetal Alchemist&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,65 m&quot;,&quot;curiosidade&quot;:&quot;Edward é o alquimista de aço e perdeu seu braço e perna devido a um experimento alquímico.&quot;},{&quot;id&quot;:22,&quot;nome&quot;:&quot;Roy Mustang&quot;,&quot;anime&quot;:&quot;Fullmetal Alchemist&quot;,&quot;idade&quot;:29,&quot;altura&quot;:&quot;1,76 m&quot;,&quot;curiosidade&quot;:&quot;Roy é o Alquimista de Fogo e possui um grande poder militar.&quot;},{&quot;id&quot;:23,&quot;nome&quot;:&quot;Saber (Artoria Pendragon)&quot;,&quot;anime&quot;:&quot;Fate/Stay Night&quot;,&quot;idade&quot;:&quot;De 20 a 30 anos&quot;,&quot;altura&quot;:&quot;1,55 m&quot;,&quot;curiosidade&quot;:&quot;Saber é a reencarnação de Artoria, a lendária Rainha da Grã-Bretanha.&quot;},{&quot;id&quot;:24,&quot;nome&quot;:&quot;Yuno Gasai&quot;,&quot;anime&quot;:&quot;Future Diary&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,52 m&quot;,&quot;curiosidade&quot;:&quot;Yuno é obcecada por Yukiteru e faz tudo para garantir sua sobrevivência no jogo dos diários.&quot;},{&quot;id&quot;:25,&quot;nome&quot;:&quot;Homura Akemi&quot;,&quot;anime&quot;:&quot;Puella Magi Madoka Magica&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,58 m&quot;,&quot;curiosidade&quot;:&quot;Homura tem a habilidade de manipular o tempo, fazendo-a reviver repetidamente os mesmos eventos.&quot;},{&quot;id&quot;:26,&quot;nome&quot;:&quot;Kenshin Himura&quot;,&quot;anime&quot;:&quot;Rurouni Kenshin&quot;,&quot;idade&quot;:28,&quot;altura&quot;:&quot;1,63 m&quot;,&quot;curiosidade&quot;:&quot;Kenshin é um ex-assassino que jurou nunca mais matar, usando uma espada com a lâmina voltada para trás.&quot;},{&quot;id&quot;:27,&quot;nome&quot;:&quot;Luffy D. Monkey&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,74 m&quot;,&quot;curiosidade&quot;:&quot;Luffy tem o sonho de se tornar o Rei dos Piratas e explorar o One Piece, o maior tesouro do mundo.&quot;},{&quot;id&quot;:28,&quot;nome&quot;:&quot;Moka Akashiya&quot;,&quot;anime&quot;:&quot;Rosario + Vampire&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,65 m&quot;,&quot;curiosidade&quot;:&quot;Moka é uma vampira com duas personalidades: uma doce e humana, e outra poderosa e perigosa.&quot;},{&quot;id&quot;:29,&quot;nome&quot;:&quot;Inuyasha&quot;,&quot;anime&quot;:&quot;Inuyasha&quot;,&quot;idade&quot;:200,&quot;altura&quot;:&quot;1,70 m&quot;,&quot;curiosidade&quot;:&quot;Inuyasha é um meio-humano e meio-demônio, buscando a Jóia de Quatro Almas Apesar de ter mais de 200 anos aparenta ter apenas 16.&quot;},{&quot;id&quot;:30,&quot;nome&quot;:&quot;Kamina&quot;,&quot;anime&quot;:&quot;Tengen Toppa Gurren Lagann&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Kamina é o irmão mais velho de Simon e possui um grande espírito de liderança.&quot;},{&quot;id&quot;:31,&quot;nome&quot;:&quot;Yugi Mutou&quot;,&quot;anime&quot;:&quot;Yu-Gi-Oh!&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,58 m&quot;,&quot;curiosidade&quot;:&quot;Yugi é um especialista em jogos e herda um antigo espírito de faraó com poderes místicos.&quot;},{&quot;id&quot;:32,&quot;nome&quot;:&quot;Rin Tohsaka&quot;,&quot;anime&quot;:&quot;Fate/Stay Night&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,59 m&quot;,&quot;curiosidade&quot;:&quot;Rin é uma das principais heroínas de Fate/Stay Night e tem uma habilidade mágica impressionante.&quot;},{&quot;id&quot;:33,&quot;nome&quot;:&quot;Vash the Stampede&quot;,&quot;anime&quot;:&quot;Trigun&quot;,&quot;idade&quot;:131,&quot;altura&quot;:&quot;1,84 m&quot;,&quot;curiosidade&quot;:&quot;Vash é conhecido por sua incrível habilidade com armas e por ser um pacifista, apesar de sua fama de destruidor.&quot;},{&quot;id&quot;:34,&quot;nome&quot;:&quot;Nico Robin&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:30,&quot;altura&quot;:&quot;1,88 m&quot;,&quot;curiosidade&quot;:&quot;Robin é uma arqueóloga com a habilidade de fazer crescer partes do corpo em qualquer superfície.&quot;},{&quot;id&quot;:35,&quot;nome&quot;:&quot;Gintoki Sakata&quot;,&quot;anime&quot;:&quot;Gintama&quot;,&quot;idade&quot;:27,&quot;altura&quot;:&quot;1,77 m&quot;,&quot;curiosidade&quot;:&quot;Gintoki é um samurai preguiçoso e rebelde, mas com um coração nobre e habilidades excepcionais.&quot;},{&quot;id&quot;:36,&quot;nome&quot;:&quot;Kyo Sohma&quot;,&quot;anime&quot;:&quot;Fruits Basket&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Kyo é um dos membros da família Sohma e se transforma em um gato quando é abraçado por alguém do sexo oposto.&quot;},{&quot;id&quot;:37,&quot;nome&quot;:&quot;Shinya Kogami&quot;,&quot;anime&quot;:&quot;Psycho-Pass&quot;,&quot;idade&quot;:29,&quot;altura&quot;:&quot;1,82 m&quot;,&quot;curiosidade&quot;:&quot;Kogami é um ex-oficial de polícia que caça criminosos com seu próprio senso de justiça.&quot;},{&quot;id&quot;:38,&quot;nome&quot;:&quot;Todoroki Shoto&quot;,&quot;anime&quot;:&quot;My Hero Academia&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,76 m&quot;,&quot;curiosidade&quot;:&quot;Shoto pode controlar tanto o gelo quanto o fogo devido ao poder de seus pais.&quot;},{&quot;id&quot;:39,&quot;nome&quot;:&quot;Asuka Langley Soryu&quot;,&quot;anime&quot;:&quot;Neon Genesis Evangelion&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,57 m&quot;,&quot;curiosidade&quot;:&quot;Asuka é uma pilota de EVA altamente talentosa, mas com uma personalidade explosiva.&quot;},{&quot;id&quot;:40,&quot;nome&quot;:&quot;Kagome Higurashi&quot;,&quot;anime&quot;:&quot;Inuyasha&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,58 m&quot;,&quot;curiosidade&quot;:&quot;Kagome tem uma ligação mística com a Jóia de Quatro Almas, que causa grandes conflitos no enredo.&quot;},{&quot;id&quot;:41,&quot;nome&quot;:&quot;Saber (Artoria Pendragon)&quot;,&quot;anime&quot;:&quot;Fate/Stay Night&quot;,&quot;idade&quot;:&quot;De 20 a 30 anos&quot;,&quot;altura&quot;:&quot;1,55 m&quot;,&quot;curiosidade&quot;:&quot;Saber é a reencarnação de Artoria, a lendária Rainha da Grã-Bretanha.&quot;},{&quot;id&quot;:42,&quot;nome&quot;:&quot;Rikuto Aizawa&quot;,&quot;anime&quot;:&quot;Alderamin on the Sky&quot;,&quot;idade&quot;:17,&quot;altura&quot;:&quot;1,81 m&quot;,&quot;curiosidade&quot;:&quot;Rikuto é um estrategista militar altamente habilidoso e um dos principais personagens da série.&quot;},{&quot;id&quot;:43,&quot;nome&quot;:&quot;Saber (Altria Pendragon)&quot;,&quot;anime&quot;:&quot;Fate/Stay Night&quot;,&quot;idade&quot;:&quot;De 20 a 30 anos&quot;,&quot;altura&quot;:&quot;1,55 m&quot;,&quot;curiosidade&quot;:&quot;Saber é a reencarnação de Artoria, a lendária Rainha da Grã-Bretanha.&quot;},{&quot;id&quot;:44,&quot;nome&quot;:&quot;Nyaruko&quot;,&quot;anime&quot;:&quot;Haiyore! Nyaruko-san&quot;,&quot;idade&quot;:&quot;Desconhecida&quot;,&quot;altura&quot;:&quot;1,60 m&quot;,&quot;curiosidade&quot;:&quot;Nyaruko é uma deusa do caos e luta contra seres malignos de outras dimensões.&quot;},{&quot;id&quot;:45,&quot;nome&quot;:&quot;Kamina&quot;,&quot;anime&quot;:&quot;Tengen Toppa Gurren Lagann&quot;,&quot;idade&quot;:&quot;14&quot;,&quot;altura&quot;:&quot;1,75 m&quot;,&quot;curiosidade&quot;:&quot;Kamina é o irmão mais velho de Simon e possui um grande espírito de liderança.&quot;},{&quot;id&quot;:46,&quot;nome&quot;:&quot;Haruhi Fujioka&quot;,&quot;anime&quot;:&quot;Ouran High School Host Club&quot;,&quot;idade&quot;:15,&quot;altura&quot;:&quot;1,63 m&quot;,&quot;curiosidade&quot;:&quot;Haruhi é uma garota que se passa por menino para conseguir uma bolsa de estudos na escola de elite.&quot;},{&quot;id&quot;:47,&quot;nome&quot;:&quot;Kou Mabuchi&quot;,&quot;anime&quot;:&quot;Ao Haru Ride&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,72 m&quot;,&quot;curiosidade&quot;:&quot;Kou é um personagem que tem dificuldades em se expressar, mas guarda um passado cheio de emoções.&quot;},{&quot;id&quot;:48,&quot;nome&quot;:&quot;Hachiman Hikigaya&quot;,&quot;anime&quot;:&quot;Oregairu&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,80 m&quot;,&quot;curiosidade&quot;:&quot;Hachiman tem uma visão cínica da vida e da sociedade, o que o torna um dos personagens mais complexos.&quot;},{&quot;id&quot;:49,&quot;nome&quot;:&quot;Mami Tomoe&quot;,&quot;anime&quot;:&quot;Puella Magi Madoka Magica&quot;,&quot;idade&quot;:14,&quot;altura&quot;:&quot;1,62 m&quot;,&quot;curiosidade&quot;:&quot;Mami é uma das Puella Magi mais experientes, com uma habilidade impressionante de combate.&quot;},{&quot;id&quot;:50,&quot;nome&quot;:&quot;Sakura Haruno&quot;,&quot;anime&quot;:&quot;Naruto&quot;,&quot;idade&quot;:16,&quot;altura&quot;:&quot;1,60 m&quot;,&quot;curiosidade&quot;:&quot;Sakura tem uma força física impressionante e é uma das ninjas mais habilidosas de sua geração.&quot;}]</code></pre>
                                         </div>
                                         <div class="card-footer">
-                                            <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-7649114d-d439-4744-ae9c-33a1eabb3ce3">Copy to Clipboard</button>
+                                            <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-4d889191-5bc6-4866-85ca-04749d34d4f1">Copy to Clipboard</button>
                                         </div>
                                 </div>
                             </div>
@@ -871,16 +905,16 @@ body.theme-light code {
                 </div>
             </div>
             </div>
-            <div id="folder-27572da1-2736-43a1-a1e7-e4fcd98dcd70" class="card-deck iteration-0">
+            <div id="folder-805c3839-7f15-413b-96ce-b31e5aad54b6" class="card-deck iteration-0">
             <div class="row iteration-0">
                 <div class="col-sm-12 mb-3 iteration-0">
                 <div class="card iteration-0">
                     <div class="card-header  bg-success iteration-0">
-                        <a data-toggle="collapse" href="#" data-target="#collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70" aria-expanded="false" aria-controls="collapse" id="requests-27572da1-2736-43a1-a1e7-e4fcd98dcd70" class="collapsed text-white z-block">
+                        <a data-toggle="collapse" href="#" data-target="#collapse-805c3839-7f15-413b-96ce-b31e5aad54b6" aria-expanded="false" aria-controls="collapse" id="requests-805c3839-7f15-413b-96ce-b31e5aad54b6" class="collapsed text-white z-block">
                     Iteration: 1 - GET /api/characters/{id} <i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
                 </a>
                     </div>
-                    <div id="collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70" class="collapse" aria-labelledby="requests-27572da1-2736-43a1-a1e7-e4fcd98dcd70">
+                    <div id="collapse-805c3839-7f15-413b-96ce-b31e5aad54b6" class="collapse" aria-labelledby="requests-805c3839-7f15-413b-96ce-b31e5aad54b6">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 mb-3">
@@ -889,14 +923,14 @@ body.theme-light code {
                                     <div class="card-body">
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Request Information</h5>
                                     <span><i class="fas fa-info-circle"></i></span><strong> Request Method:</strong> <span class="badge-outline-success badge badge-success"> GET</span><br>
-                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="http://animesapi-production.up.railway.app/api/characters/1" target="_blank">http://animesapi-production.up.railway.app/api/characters/1</a><br>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="https://animesapi-production-afranio.up.railway.app/api/characters/1" target="_blank">https://animesapi-production-afranio.up.railway.app/api/characters/1</a><br>
                                     </div>
                                 </div>
                                 <div class="card border-info" style="width: 50rem;">
                                     <div class="card-body">
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Response Information</h5>
                                     <span><i class="fas fa-info-circle"></i></span><strong> Response Code:</strong> <span class="float-right badge-outline badge badge-success"> 200 - OK</span><br>
-                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 2ms</span><br>
+                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 86ms</span><br>
                                     <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 157B</span><br>
                                     <hr>
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Test Pass Percentage</h5>
@@ -936,11 +970,11 @@ body.theme-light code {
                                                     </tr>
                                                     <tr>
                                                         <td class="text-nowrap">Postman-Token</td>
-                                                        <td class="text-wrap">1cf7799f-c893-4f37-88cc-3943d5a54a59</td>
+                                                        <td class="text-wrap">284660f0-6733-4b08-8b69-ca22d847ea32</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-nowrap">Host</td>
-                                                        <td class="text-wrap">animesapi-production.up.railway.app:3000</td>
+                                                        <td class="text-wrap">animesapi-production-afranio.up.railway.app</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-nowrap">Accept-Encoding</td>
@@ -969,32 +1003,36 @@ body.theme-light code {
                                         <thead class="thead-light text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-nowrap">X-Powered-By</td>
-                                                    <td class="text-wrap">Express</td>
+                                                    <td class="text-nowrap">Content-Length</td>
+                                                    <td class="text-wrap">157</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-nowrap">Content-Type</td>
                                                     <td class="text-wrap">application/json; charset&#x3D;utf-8</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Content-Length</td>
-                                                    <td class="text-wrap">157</td>
+                                                    <td class="text-nowrap">Date</td>
+                                                    <td class="text-wrap">Mon, 14 Apr 2025 19:02:11 GMT</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">ETag</td>
+                                                    <td class="text-nowrap">Etag</td>
                                                     <td class="text-wrap">W/&quot;9d-4M5dc9z3cZxYRuZ683ei3qGaYUQ&quot;</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Date</td>
-                                                    <td class="text-wrap">Mon, 14 Apr 2025 16:22:52 GMT</td>
+                                                    <td class="text-nowrap">Server</td>
+                                                    <td class="text-wrap">railway-edge</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Connection</td>
-                                                    <td class="text-wrap">keep-alive</td>
+                                                    <td class="text-nowrap">X-Powered-By</td>
+                                                    <td class="text-wrap">Express</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Keep-Alive</td>
-                                                    <td class="text-wrap">timeout&#x3D;5</td>
+                                                    <td class="text-nowrap">X-Railway-Edge</td>
+                                                    <td class="text-wrap">railway/us-east4-eqdc4a</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Railway-Request-Id</td>
+                                                    <td class="text-wrap">sM1qJuvGSy2G-hHYYa3ZKA_28081791</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -1011,10 +1049,10 @@ body.theme-light code {
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
                                         <div class="dyn-height">
-                                                <pre><code id="copyText-c8136f29-da9f-4c91-bc26-4d909d6ce324" class="prettyPrint">{&quot;id&quot;:1,&quot;nome&quot;:&quot;Monkey D. Luffy&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,74 m&quot;,&quot;curiosidade&quot;:&quot;Luffy possui um corpo elástico devido à Gomu-Gomu no Mi.&quot;}</code></pre>
+                                                <pre><code id="copyText-e98fbfb8-be55-4de1-86ca-3dc1ffe16265" class="prettyPrint">{&quot;id&quot;:1,&quot;nome&quot;:&quot;Monkey D. Luffy&quot;,&quot;anime&quot;:&quot;One Piece&quot;,&quot;idade&quot;:19,&quot;altura&quot;:&quot;1,74 m&quot;,&quot;curiosidade&quot;:&quot;Luffy possui um corpo elástico devido à Gomu-Gomu no Mi.&quot;}</code></pre>
                                         </div>
                                         <div class="card-footer">
-                                            <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-c8136f29-da9f-4c91-bc26-4d909d6ce324">Copy to Clipboard</button>
+                                            <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-e98fbfb8-be55-4de1-86ca-3dc1ffe16265">Copy to Clipboard</button>
                                         </div>
                                 </div>
                             </div>
@@ -1079,16 +1117,16 @@ body.theme-light code {
                 </div>
             </div>
             </div>
-            <div id="folder-27e52c12-300d-473b-b8ae-b16d823eb66d" class="card-deck iteration-0">
+            <div id="folder-35104359-b94d-4515-8890-c2be0c1997e8" class="card-deck iteration-0">
             <div class="row iteration-0">
                 <div class="col-sm-12 mb-3 iteration-0">
                 <div class="card iteration-0">
-                    <div class="card-header  bg-success iteration-0">
-                        <a data-toggle="collapse" href="#" data-target="#collapse-27e52c12-300d-473b-b8ae-b16d823eb66d" aria-expanded="false" aria-controls="collapse" id="requests-27e52c12-300d-473b-b8ae-b16d823eb66d" class="collapsed text-white z-block">
+                    <div class="card-header  bg-danger iteration-0">
+                        <a data-toggle="collapse" href="#" data-target="#collapse-35104359-b94d-4515-8890-c2be0c1997e8" aria-expanded="false" aria-controls="collapse" id="requests-35104359-b94d-4515-8890-c2be0c1997e8" class="collapsed text-white z-block">
                     Iteration: 1 - GET /api/characters/{invalid_id} <i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
                 </a>
                     </div>
-                    <div id="collapse-27e52c12-300d-473b-b8ae-b16d823eb66d" class="collapse" aria-labelledby="requests-27e52c12-300d-473b-b8ae-b16d823eb66d">
+                    <div id="collapse-35104359-b94d-4515-8890-c2be0c1997e8" class="collapse" aria-labelledby="requests-35104359-b94d-4515-8890-c2be0c1997e8">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 mb-3">
@@ -1097,21 +1135,21 @@ body.theme-light code {
                                     <div class="card-body">
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Request Information</h5>
                                     <span><i class="fas fa-info-circle"></i></span><strong> Request Method:</strong> <span class="badge-outline-success badge badge-success"> GET</span><br>
-                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="http://animesapi-production.up.railway.app/api/characters/99999" target="_blank">http://animesapi-production.up.railway.app/api/characters/99999</a><br>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="https://animesapi-production-afranio.up.railway.app//api/characters/99999" target="_blank">https://animesapi-production-afranio.up.railway.app//api/characters/99999</a><br>
                                     </div>
                                 </div>
                                 <div class="card border-info" style="width: 50rem;">
                                     <div class="card-body">
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Response Information</h5>
                                     <span><i class="fas fa-info-circle"></i></span><strong> Response Code:</strong> <span class="float-right badge-outline badge badge-success"> 404 - Not Found</span><br>
-                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 4ms</span><br>
-                                    <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 41B</span><br>
+                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 85ms</span><br>
+                                    <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 160B</span><br>
                                     <hr>
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Test Pass Percentage</h5>
                                     <div>
                                         <div class="progress" style="height: 40px;">
-                                            <div class="progress-bar  bg-success" style="width: 100%" role="progressbar">
-                                            <h5 style="padding-top:5px;"><strong>100 %</strong></h5>
+                                            <div class="progress-bar  bg-danger" style="width: 100%" role="progressbar">
+                                            <h5 style="padding-top:5px;"><strong>50 %</strong></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -1144,11 +1182,11 @@ body.theme-light code {
                                                     </tr>
                                                     <tr>
                                                         <td class="text-nowrap">Postman-Token</td>
-                                                        <td class="text-wrap">035aa2ec-6b64-47d5-bd1d-91374a40bfe3</td>
+                                                        <td class="text-wrap">4d4754d1-56ee-47ff-b501-d3f68f3aace0</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-nowrap">Host</td>
-                                                        <td class="text-wrap">animesapi-production.up.railway.app:3000</td>
+                                                        <td class="text-wrap">animesapi-production-afranio.up.railway.app</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-nowrap">Accept-Encoding</td>
@@ -1177,32 +1215,40 @@ body.theme-light code {
                                         <thead class="thead-light text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
                                             <tbody>
                                                 <tr>
+                                                    <td class="text-nowrap">Content-Length</td>
+                                                    <td class="text-wrap">160</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Security-Policy</td>
+                                                    <td class="text-wrap">default-src &#x27;none&#x27;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Type</td>
+                                                    <td class="text-wrap">text/html; charset&#x3D;utf-8</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Date</td>
+                                                    <td class="text-wrap">Mon, 14 Apr 2025 19:02:11 GMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Server</td>
+                                                    <td class="text-wrap">railway-edge</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Content-Type-Options</td>
+                                                    <td class="text-wrap">nosniff</td>
+                                                </tr>
+                                                <tr>
                                                     <td class="text-nowrap">X-Powered-By</td>
                                                     <td class="text-wrap">Express</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Content-Type</td>
-                                                    <td class="text-wrap">application/json; charset&#x3D;utf-8</td>
+                                                    <td class="text-nowrap">X-Railway-Edge</td>
+                                                    <td class="text-wrap">railway/us-east4-eqdc4a</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-nowrap">Content-Length</td>
-                                                    <td class="text-wrap">41</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-nowrap">ETag</td>
-                                                    <td class="text-wrap">W/&quot;29-JB7yjtdCCN34CJdTDB6P5fj20Wk&quot;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-nowrap">Date</td>
-                                                    <td class="text-wrap">Mon, 14 Apr 2025 16:22:52 GMT</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-nowrap">Connection</td>
-                                                    <td class="text-wrap">keep-alive</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-nowrap">Keep-Alive</td>
-                                                    <td class="text-wrap">timeout&#x3D;5</td>
+                                                    <td class="text-nowrap">X-Railway-Request-Id</td>
+                                                    <td class="text-wrap">tujzGkM3QVqgwtiwHDNBug_28081791</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -1219,10 +1265,20 @@ body.theme-light code {
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
                                         <div class="dyn-height">
-                                                <pre><code id="copyText-3b65749a-25a6-4cce-9226-6e00f4747dc2" class="prettyPrint">{&quot;mensagem&quot;:&quot;Personagem não encontrado&quot;}</code></pre>
+                                                <pre><code id="copyText-e6c2795b-37cb-4809-a174-b19d2f9a9450" class="prettyPrint">&lt;!DOCTYPE html&gt;
+        &lt;html lang&#x3D;&quot;en&quot;&gt;
+        &lt;head&gt;
+        &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;
+        &lt;title&gt;Error&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;pre&gt;Cannot GET //api/characters/99999&lt;/pre&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+        </code></pre>
                                         </div>
                                         <div class="card-footer">
-                                            <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-3b65749a-25a6-4cce-9226-6e00f4747dc2">Copy to Clipboard</button>
+                                            <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-e6c2795b-37cb-4809-a174-b19d2f9a9450">Copy to Clipboard</button>
                                         </div>
                                 </div>
                             </div>
@@ -1245,22 +1301,22 @@ body.theme-light code {
                                                 </tr>
                                                 <tr >
                                                     <td >Error message is returned</td>
-                                                    <td class="text-center bg-success">1</td>
                                                     <td class="text-center ">0</td>
+                                                    <td class="text-center bg-danger">1</td>
                                                     <td class="text-center ">0</td>
                                                 </tr>
                                             </tbody>
                                             <tfoot>
                                                 <tr class="bg-light">
                                                     <td><strong>Total</strong></td>
-                                                    <td class="text-center">2</td>
-                                                    <td class="text-center">0</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
                                                     <td class="text-center">0</td>
                                                 </tr>
                                             </tfoot>
                                         </table>
                                     </div>
-                                    <div class="row d-none">
+                                    <div class="row ">
                                     <div class="col-sm-12 mb-3">
                                         <div class="card-deck">
                                         <div class="card border-danger" style="width: 50rem;">
@@ -1270,6 +1326,12 @@ body.theme-light code {
                                                     <table class="table table-hover">
                                                     <thead><tr class="text-nowrap"><th>Test Name</th><th>Assertion Error</th></tr></thead>
                                                         <tbody>
+                                                            <tr>
+                                                                <td class="w-45 text-nowrap ">Error message is returned</td>
+                                                                <td class="w-55"><pre><code >Unexpected token &#x27;&lt;&#x27; at 1:1
+        &lt;!DOCTYPE html&gt;
+        ^</code></pre></td>
+                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -1375,33 +1437,33 @@ $('#openAllRequests').on('click', function(e) {
 let clickCount = $(this).data("clickCount") || 1
 switch (clickCount){
     case 1:
-            $('#requests-7cbb7926-0fda-4b96-b52b-08cb5c557e72').removeClass('collapsed')
-            $('#collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72').removeClass('collapsed')
-            $('#requests-7cbb7926-0fda-4b96-b52b-08cb5c557e72').addClass('show')
-            $('#collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72').addClass('show')
-            $('#requests-27572da1-2736-43a1-a1e7-e4fcd98dcd70').removeClass('collapsed')
-            $('#collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70').removeClass('collapsed')
-            $('#requests-27572da1-2736-43a1-a1e7-e4fcd98dcd70').addClass('show')
-            $('#collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70').addClass('show')
-            $('#requests-27e52c12-300d-473b-b8ae-b16d823eb66d').removeClass('collapsed')
-            $('#collapse-27e52c12-300d-473b-b8ae-b16d823eb66d').removeClass('collapsed')
-            $('#requests-27e52c12-300d-473b-b8ae-b16d823eb66d').addClass('show')
-            $('#collapse-27e52c12-300d-473b-b8ae-b16d823eb66d').addClass('show')
+            $('#requests-f5e9442e-2341-42b4-8495-774900010378').removeClass('collapsed')
+            $('#collapse-f5e9442e-2341-42b4-8495-774900010378').removeClass('collapsed')
+            $('#requests-f5e9442e-2341-42b4-8495-774900010378').addClass('show')
+            $('#collapse-f5e9442e-2341-42b4-8495-774900010378').addClass('show')
+            $('#requests-805c3839-7f15-413b-96ce-b31e5aad54b6').removeClass('collapsed')
+            $('#collapse-805c3839-7f15-413b-96ce-b31e5aad54b6').removeClass('collapsed')
+            $('#requests-805c3839-7f15-413b-96ce-b31e5aad54b6').addClass('show')
+            $('#collapse-805c3839-7f15-413b-96ce-b31e5aad54b6').addClass('show')
+            $('#requests-35104359-b94d-4515-8890-c2be0c1997e8').removeClass('collapsed')
+            $('#collapse-35104359-b94d-4515-8890-c2be0c1997e8').removeClass('collapsed')
+            $('#requests-35104359-b94d-4515-8890-c2be0c1997e8').addClass('show')
+            $('#collapse-35104359-b94d-4515-8890-c2be0c1997e8').addClass('show')
         $('#openAllRequests').html("Collapse Requests");
         break;
     case 2:
-            $('#requests-7cbb7926-0fda-4b96-b52b-08cb5c557e72').addClass('collapsed')
-            $('#collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72').addClass('collapsed')
-            $('#requests-7cbb7926-0fda-4b96-b52b-08cb5c557e72').removeClass('show')
-            $('#collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72').removeClass('show')
-            $('#requests-27572da1-2736-43a1-a1e7-e4fcd98dcd70').addClass('collapsed')
-            $('#collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70').addClass('collapsed')
-            $('#requests-27572da1-2736-43a1-a1e7-e4fcd98dcd70').removeClass('show')
-            $('#collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70').removeClass('show')
-            $('#requests-27e52c12-300d-473b-b8ae-b16d823eb66d').addClass('collapsed')
-            $('#collapse-27e52c12-300d-473b-b8ae-b16d823eb66d').addClass('collapsed')
-            $('#requests-27e52c12-300d-473b-b8ae-b16d823eb66d').removeClass('show')
-            $('#collapse-27e52c12-300d-473b-b8ae-b16d823eb66d').removeClass('show')
+            $('#requests-f5e9442e-2341-42b4-8495-774900010378').addClass('collapsed')
+            $('#collapse-f5e9442e-2341-42b4-8495-774900010378').addClass('collapsed')
+            $('#requests-f5e9442e-2341-42b4-8495-774900010378').removeClass('show')
+            $('#collapse-f5e9442e-2341-42b4-8495-774900010378').removeClass('show')
+            $('#requests-805c3839-7f15-413b-96ce-b31e5aad54b6').addClass('collapsed')
+            $('#collapse-805c3839-7f15-413b-96ce-b31e5aad54b6').addClass('collapsed')
+            $('#requests-805c3839-7f15-413b-96ce-b31e5aad54b6').removeClass('show')
+            $('#collapse-805c3839-7f15-413b-96ce-b31e5aad54b6').removeClass('show')
+            $('#requests-35104359-b94d-4515-8890-c2be0c1997e8').addClass('collapsed')
+            $('#collapse-35104359-b94d-4515-8890-c2be0c1997e8').addClass('collapsed')
+            $('#requests-35104359-b94d-4515-8890-c2be0c1997e8').removeClass('show')
+            $('#collapse-35104359-b94d-4515-8890-c2be0c1997e8').removeClass('show')
         $('#openAllRequests').html("Expand Requests");
         break;
 }
@@ -1417,33 +1479,33 @@ $('#openAllSkipped').on('click', function(e) {
 let clickCount = $(this).data("clickCount") || 1
 switch (clickCount){
     case 1:
-            $('#skipped-7cbb7926-0fda-4b96-b52b-08cb5c557e72').removeClass('collapsed')
-            $('#skipped-collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72').removeClass('collapsed')
-            $('#skipped-7cbb7926-0fda-4b96-b52b-08cb5c557e72').addClass('show')
-            $('#skipped-collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72').addClass('show')
-            $('#skipped-27572da1-2736-43a1-a1e7-e4fcd98dcd70').removeClass('collapsed')
-            $('#skipped-collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70').removeClass('collapsed')
-            $('#skipped-27572da1-2736-43a1-a1e7-e4fcd98dcd70').addClass('show')
-            $('#skipped-collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70').addClass('show')
-            $('#skipped-27e52c12-300d-473b-b8ae-b16d823eb66d').removeClass('collapsed')
-            $('#skipped-collapse-27e52c12-300d-473b-b8ae-b16d823eb66d').removeClass('collapsed')
-            $('#skipped-27e52c12-300d-473b-b8ae-b16d823eb66d').addClass('show')
-            $('#skipped-collapse-27e52c12-300d-473b-b8ae-b16d823eb66d').addClass('show')
+            $('#skipped-f5e9442e-2341-42b4-8495-774900010378').removeClass('collapsed')
+            $('#skipped-collapse-f5e9442e-2341-42b4-8495-774900010378').removeClass('collapsed')
+            $('#skipped-f5e9442e-2341-42b4-8495-774900010378').addClass('show')
+            $('#skipped-collapse-f5e9442e-2341-42b4-8495-774900010378').addClass('show')
+            $('#skipped-805c3839-7f15-413b-96ce-b31e5aad54b6').removeClass('collapsed')
+            $('#skipped-collapse-805c3839-7f15-413b-96ce-b31e5aad54b6').removeClass('collapsed')
+            $('#skipped-805c3839-7f15-413b-96ce-b31e5aad54b6').addClass('show')
+            $('#skipped-collapse-805c3839-7f15-413b-96ce-b31e5aad54b6').addClass('show')
+            $('#skipped-35104359-b94d-4515-8890-c2be0c1997e8').removeClass('collapsed')
+            $('#skipped-collapse-35104359-b94d-4515-8890-c2be0c1997e8').removeClass('collapsed')
+            $('#skipped-35104359-b94d-4515-8890-c2be0c1997e8').addClass('show')
+            $('#skipped-collapse-35104359-b94d-4515-8890-c2be0c1997e8').addClass('show')
         $('#openAllSkipped').html("Collapse All Skipped Tests");
         break;
     case 2:
-            $('#skipped-7cbb7926-0fda-4b96-b52b-08cb5c557e72').addClass('collapsed')
-            $('#skipped-collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72').addClass('collapsed')
-            $('#skipped-7cbb7926-0fda-4b96-b52b-08cb5c557e72').removeClass('show')
-            $('#skipped-collapse-7cbb7926-0fda-4b96-b52b-08cb5c557e72').removeClass('show')
-            $('#skipped-27572da1-2736-43a1-a1e7-e4fcd98dcd70').addClass('collapsed')
-            $('#skipped-collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70').addClass('collapsed')
-            $('#skipped-27572da1-2736-43a1-a1e7-e4fcd98dcd70').removeClass('show')
-            $('#skipped-collapse-27572da1-2736-43a1-a1e7-e4fcd98dcd70').removeClass('show')
-            $('#skipped-27e52c12-300d-473b-b8ae-b16d823eb66d').addClass('collapsed')
-            $('#skipped-collapse-27e52c12-300d-473b-b8ae-b16d823eb66d').addClass('collapsed')
-            $('#skipped-27e52c12-300d-473b-b8ae-b16d823eb66d').removeClass('show')
-            $('#skipped-collapse-27e52c12-300d-473b-b8ae-b16d823eb66d').removeClass('show')
+            $('#skipped-f5e9442e-2341-42b4-8495-774900010378').addClass('collapsed')
+            $('#skipped-collapse-f5e9442e-2341-42b4-8495-774900010378').addClass('collapsed')
+            $('#skipped-f5e9442e-2341-42b4-8495-774900010378').removeClass('show')
+            $('#skipped-collapse-f5e9442e-2341-42b4-8495-774900010378').removeClass('show')
+            $('#skipped-805c3839-7f15-413b-96ce-b31e5aad54b6').addClass('collapsed')
+            $('#skipped-collapse-805c3839-7f15-413b-96ce-b31e5aad54b6').addClass('collapsed')
+            $('#skipped-805c3839-7f15-413b-96ce-b31e5aad54b6').removeClass('show')
+            $('#skipped-collapse-805c3839-7f15-413b-96ce-b31e5aad54b6').removeClass('show')
+            $('#skipped-35104359-b94d-4515-8890-c2be0c1997e8').addClass('collapsed')
+            $('#skipped-collapse-35104359-b94d-4515-8890-c2be0c1997e8').addClass('collapsed')
+            $('#skipped-35104359-b94d-4515-8890-c2be0c1997e8').removeClass('show')
+            $('#skipped-collapse-35104359-b94d-4515-8890-c2be0c1997e8').removeClass('show')
         $('#openAllSkipped').html("Expand All Skipped Tests");
         break;
 }
@@ -1461,9 +1523,21 @@ let failedItemContent
 let failedItemHeading
 switch (clickCount){
     case 1:
+            failedItemHeading = $('#fails-add45cfe-b633-4ecc-b9bc-8eaf4c2e3891');
+            failedItemContent = $("#fails-collapse-add45cfe-b633-4ecc-b9bc-8eaf4c2e3891");
+            failedItemHeading.removeClass('collapsed')
+            failedItemContent.removeClass('collapsed')
+            failedItemHeading.addClass('show')
+            failedItemContent.addClass('show')
         $('#openAllFailed').html("Collapse All Failed Tests");
         break;
     case 2:
+            failedItemHeading = $('#fails-add45cfe-b633-4ecc-b9bc-8eaf4c2e3891');
+            failedItemContent = $("#fails-collapse-add45cfe-b633-4ecc-b9bc-8eaf4c2e3891");
+            failedItemHeading.removeClass('show')
+            failedItemContent.removeClass('show')
+            failedItemHeading.addClass('collapsed')
+            failedItemContent.addClass('collapsed')
         $('#openAllFailed').html("Expand All Failed Tests");
         break;
 }
@@ -1588,6 +1662,8 @@ function scrollFunction() {
     document.getElementById("openAllRequests").style.display = "none";
 
 
+    document.getElementById("showOnlyFailures").style.display = "none";
+    document.getElementById("openAllFailed").style.display = "none";
   } else {
     document.getElementById("topOfRequestsScreen").style.display = "none";
     document.getElementById("topOfFailuresScreen").style.display = "none";
@@ -1595,6 +1671,8 @@ function scrollFunction() {
     document.getElementById("openAll").style.display = "block";
     document.getElementById("openAllRequests").style.display = "block";
 
+    document.getElementById("showOnlyFailures").style.display = "block";
+    document.getElementById("openAllFailed").style.display = "block";
   }
 }
 
@@ -1657,6 +1735,7 @@ window.onload = function () {
   document.getElementById('iteration-0').click();
   document.getElementById('iterationSelected').innerHTML = `Iteration ${document.getElementById('iteration-0').innerHTML} selected`
 
+    $("#iteration-0").removeClass('itPassed').addClass('itFailed')
 }
 </script>
 
