@@ -25,17 +25,20 @@ jobs:
           npm install -g newman-reporter-htmlextra
 
       - name: 🧪 Executa os testes de autenticação
+        id: autenticacao
         run: |
           newman run ./test/autenticacao_collection.json \
             --env-var base_url=https://animesapi-production-afranio.up.railway.app \
             -r cli,htmlextra \
             --reporter-htmlextra-export=autenticacao-report.html
+          # Extrair o token de autenticação da resposta e definir como variável de ambiente
+          echo "AUTH_TOKEN=$(newman run ./test/autenticacao_collection.json --env-var base_url=https://animesapi-production-afranio.up.railway.app | grep -oP '(?<=token":")[^"]+')" >> $GITHUB_ENV
 
       - name: 🧪 Executa os testes de funcionalidade
         run: |
           newman run ./test/funcionalidade_collection.json \
             --env-var base_url=https://animesapi-production-afranio.up.railway.app \
-            --env-var auth_token={{auth_token}} \
+            --env-var auth_token=${{ env.AUTH_TOKEN }} \
             -r cli,htmlextra \
             --reporter-htmlextra-export=funcionalidade-report.html
 

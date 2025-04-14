@@ -1,37 +1,51 @@
-const express = require('express');
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const router = express.Router();
+const bcrypt = require('bcrypt');
 
-const users = []; // Armazenamento em memória (temporário)
+// Armazenamento em memória para simular um banco de dados
+let users = []; // Lista de usuários
 
-const JWT_SECRET = process.env.JWT_SECRET || 'segredo_super_secreto';
+// Função para criar um novo usuário
+function register(username, password) {
+  // Verificar se o usuário já existe
+  if (users.find(user => user.username === username)) {
+    return { error: 'Usuário já existe' };
+  }
 
-// Registro de usuário
-router.post('/register', async (req, res) => {
-  const { nome, senha } = req.body;
+  // Criptografar a senha
+  const hashedPassword = bcrypt.hashSync(password, 10);
 
-  const existingUser = users.find(user => user.nome === nome);
-  if (existingUser) return res.status(400).json({ mensagem: 'Usuário já existe' });
+  // Adicionar o novo usuário
+  users.push({ username, password: hashedPassword });
 
-  const hashedSenha = await bcrypt.hash(senha, 10);
-  users.push({ nome, senha: hashedSenha });
+  return { success: 'Usuário criado com sucesso' };
+}
 
-  res.status(201).json({ mensagem: 'Usuário registrado com sucesso' });
-});
+// Função para fazer login e retornar um token
+function login(username, password) {
+  // Procurar o usuário
+  const user = users.find(u => u.username === username);
+  if (!user) {
+    return { error: 'Usuário não encontrado' };
+  }
 
-// Login de usuário
-router.post('/login', async (req, res) => {
-  const { nome, senha } = req.body;
+  // Verificar a senha
+  if (!bcrypt.compareSync(password, user.password)) {
+    return { error: 'Senha incorreta' };
+  }
 
-  const user = users.find(user => user.nome === nome);
-  if (!user) return res.status(400).json({ mensagem: 'Usuário não encontrado' });
+  // Gerar um token JWT
+  const token = jwt.sign({ username: user.username }, 'secreta', { expiresIn: '1h' });
+  return { token };
+}
 
-  const isSenhaValida = await bcrypt.compare(senha, user.senha);
-  if (!isSenhaValida) return res.status(401).json({ mensagem: 'Senha incorreta' });
+// Função para verificar o token JWT
+function verifyToken(token) {
+  try {
+    const decoded = jwt.verify(token, 'secreta');
+    return decoded;
+  } catch (err) {
+    return null;
+  }
+}
 
-  const token = jwt.sign({ nome: user.nome }, JWT_SECRET, { expiresIn: '1h' });
-  res.json({ token });
-});
-
-module.exports = router;
+module.exports = { register, login, verifyToken };
