@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: 📥 Checkout do repositório
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # usa a versão mais recente e estável
 
       - name: ⚙️ Instala Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # usa versão estável mais nova
         with:
           node-version: '20'
 
@@ -31,7 +31,7 @@ jobs:
             --reporter-htmlextra-export=newman-report.html
 
       - name: 📤 Publica o relatório como artefato
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@v4  # <<< ALTERADO AQUI
         with:
           name: Relatorio-Newman
           path: newman-report.html
