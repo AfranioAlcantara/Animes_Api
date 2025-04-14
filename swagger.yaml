@@ -5,7 +5,7 @@ info:
   description: API que fornece informações sobre personagens de animes famosos
 
 servers:
-  - url: http://localhost:3000
+  - url: http://animesapi-production.up.railway.app:3000
 
 paths:
   /api/characters:

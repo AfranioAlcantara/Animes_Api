@@ -28,6 +28,6 @@ app.get('/api/characters/:id', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`API de personagens de anime rodando em http://localhost:${port}`);
-  console.log(`Swagger disponível em http://localhost:${port}/api-docs`);
+  console.log(`API de personagens de anime rodando em http://animesapi-production.up.railway.app:${port}`);
+  console.log(`Swagger disponível em http://animesapi-production.up.railway.app:${port}/api-docs`);
 });
