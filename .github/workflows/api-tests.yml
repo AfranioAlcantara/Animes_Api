@@ -1,0 +1,37 @@
+name: Run API Tests with Newman
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Instala Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: 📦 Instala dependências
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+
+      - name: 🧪 Executa os testes com Newman
+        run: |
+          newman run ./test/Anime_Characters_API_Collection.json \
+            -r cli,htmlextra \
+            --reporter-htmlextra-export newman-report.html
+
+      - name: 📤 Publica o relatório como artefato
+        uses: actions/upload-artifact@v3
+        with:
+          name: Relatorio-Newman
+          path: newman-report.html
