@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Armazenamento em memória para simular um banco de dados
 let users = []; // Lista de usuários

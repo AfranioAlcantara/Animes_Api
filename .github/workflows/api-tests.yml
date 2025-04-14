@@ -24,15 +24,17 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
 
-      - name: 🧪 Executa os testes de autenticação
+      - name: 🧪 Executa os testes de autenticação e extrai o token
         id: autenticacao
         run: |
           newman run ./test/autenticacao_collection.json \
             --env-var base_url=https://animesapi-production-afranio.up.railway.app \
             -r cli,htmlextra \
             --reporter-htmlextra-export=autenticacao-report.html
-          # Extrair o token de autenticação da resposta e definir como variável de ambiente
-          echo "AUTH_TOKEN=$(newman run ./test/autenticacao_collection.json --env-var base_url=https://animesapi-production-afranio.up.railway.app | grep -oP '(?<=token":")[^"]+')" >> $GITHUB_ENV
+
+          # Extrai o token do último resultado salvo (substitua 'token' se necessário)
+          TOKEN=$(cat autenticacao-report.html | grep -oP '(?<=token":")[^"]+')
+          echo "AUTH_TOKEN=$TOKEN" >> $GITHUB_ENV
 
       - name: 🧪 Executa os testes de funcionalidade
         run: |
@@ -42,8 +44,10 @@ jobs:
             -r cli,htmlextra \
             --reporter-htmlextra-export=funcionalidade-report.html
 
-      - name: 📤 Publica o relatório como artefato
+      - name: 📤 Publica os relatórios como artefato
         uses: actions/upload-artifact@v4
         with:
-          name: Relatorio-Newman
-          path: newman-report.html
+          name: Relatorios-Newman
+          path: |
+            autenticacao-report.html
+            funcionalidade-report.html

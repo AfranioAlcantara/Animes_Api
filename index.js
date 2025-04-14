@@ -12,13 +12,13 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml');
 
-// Middleware para JSON
+// Middleware para ler JSON do corpo das requisições
 app.use(express.json());
 
-// Swagger
+// Rota de documentação Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// Rotas de autenticação (registro e login)
+// Rotas públicas (registro e login)
 app.use('/auth', authRoutes);
 
 // Rotas protegidas por autenticação
@@ -40,5 +40,5 @@ app.get('/api/characters/:id', autenticarToken, (req, res) => {
 // Inicializa servidor
 app.listen(port, () => {
   console.log(`🚀 API de personagens de anime rodando na porta ${port}`);
-  console.log(`📚 Documentação Swagger disponível em /api-docs`);
+  console.log(`📚 Documentação Swagger disponível em http://localhost:${port}/api-docs`);
 });
