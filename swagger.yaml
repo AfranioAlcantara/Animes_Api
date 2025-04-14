@@ -5,7 +5,7 @@ info:
   description: API para listar personagens de animes
 
 servers:
-  - url: localhost:3000/api-docs/#/Personagens/get_api_characters__id_
+  - url: https://animesapi-production-afranio.up.railway.app
     description: Servidor de produção (Railway)
 
 paths:

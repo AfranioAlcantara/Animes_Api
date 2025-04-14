@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-// Porta dinâmica para Railway ou 3000 localmente
+// Usa a porta que o Railway fornece ou 3000 localmente
 const port = process.env.PORT || 3000;
 
 const characters = require('./data/characters');
@@ -31,6 +31,6 @@ app.get('/api/characters/:id', (req, res) => {
 
 // Inicializar servidor
 app.listen(port, () => {
-  console.log(`API de personagens de anime rodando na porta ${port}`);
-  console.log(`Swagger disponível em /api-docs`);
+  console.log(`🚀 API de personagens de anime rodando na porta ${port}`);
+  console.log(`📚 Documentação Swagger disponível em /api-docs`);
 });
